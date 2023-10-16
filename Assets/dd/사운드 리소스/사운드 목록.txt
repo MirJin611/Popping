@@ -1,0 +1,9 @@
+y2mate.com - Fail sound effect = 풍선 하나도 못 맞췄을 시?
+y2mate.com - Piano Tada Sound Effect = 게임 결과 창
+y2mate.com - Clock Ticking  Sound Effects = 끝나기 5초전 재생 시작
+y2mate.com - Time out Buzzer Sound effect = 남은시간 0초 되면 Clock Ticking 끝나자마자 바로 재생
+y2mate.com - 3 2 1 Countdown  Sound Effect HD = 시작 전 카운트 다운
+y2mate.com - Gameboy Startup Sound = 카운트 다운 끝나고 바로 재생
+y2mate.com - Click  Sound Effect HD = UI 모든 버튼 클릭 시 재생
+Pop sound = 풍선 터질 때 재생
+y2mate.com - Fun Retro Motown  Upbeat Royalty Free Music = 메인 bgm

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 517085830209985121}
   - component: {fileID: 7746339218552581445}
   - component: {fileID: 3823125741756971463}
+  - component: {fileID: -3901395358146541453}
   m_Layer: 0
   m_Name: dart
   m_TagString: Dart
@@ -27,14 +28,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2030545787206925236}
-  m_LocalRotation: {x: 0.8493957, y: -0.52051026, z: 0.045538813, w: 0.074312605}
-  m_LocalPosition: {x: 0, y: -0.09, z: 0.26}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 170, y: 0, z: 63}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2362693924824100523
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -114,3 +115,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.04513963, y: 0.04144603, z: 0.10724819}
   m_Center: {x: -0.0000000037189463, y: 0.00003608597, z: 1.6373819e-12}
+--- !u!114 &-3901395358146541453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030545787206925236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a8990735c56b848a7b028b862812bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dartPower: 0

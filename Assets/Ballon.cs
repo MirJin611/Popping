@@ -7,16 +7,13 @@ public class Ballon : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private int score;
     [SerializeField] private GameObject particle;
+    [SerializeField] AudioSource audioSource;
 
     private void Awake()
     {
         Invoke("DestroyBallon", 10);
     }
 
-    void DestroyBallon()
-    {
-        Destroy(gameObject);
-    }
 
     void Update()
     {
@@ -25,13 +22,19 @@ public class Ballon : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Dart"))
+        if (other.CompareTag("Dart"))
         {
+            SoundManager.instance.PlaySound(SoundManager.instance.BallonBoomSound);
             Instantiate(particle, transform.position, Quaternion.identity);
             GameManager.instance.ComboUp();
             GameManager.instance.ScoreUp(score * GameManager.instance.currentCombo);
             Destroy(other.gameObject);
             Destroy(gameObject);
         }
+    }
+
+    void DestroyBallon()
+    {
+        Destroy(gameObject);
     }
 }

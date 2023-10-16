@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public int gameTime;
     public int currentTime;
+    public int endCountTime = 10;
     public int passedTime { get { return gameTime - currentTime; } }
     public TextMeshProUGUI timer;
     [Space]
@@ -15,7 +16,8 @@ public class GameManager : MonoBehaviour
     public int bestScore;
 
     [SerializeField] private float dartPower;
-    [SerializeField] private GameObject currentDart;
+    [SerializeField] private float flyingTime;
+    [SerializeField] private Dart currentDart;
     [SerializeField] private GameObject dartPrefab;
     [SerializeField] private Transform dartSpawnPoint;
 
@@ -34,15 +36,14 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     private void Awake() => instance = this;
 
+    bool isplaying = false;
+    bool endCountDown = false;
+
     private void Update()
     {
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && isplaying)
         {
-            currentDart.GetComponent<Rigidbody>().useGravity = true;
-            currentDart.transform.parent = null;
-            currentDart.GetComponent<Rigidbody>().AddForce(currentDart.transform.rotation * Vector3.back * dartPower);
-
-            Invoke("SpawnDart", 1f);
+            currentDart.IsFlying = true;
         }
 
         if (Input.GetKeyDown(KeyCode.A))
@@ -51,27 +52,29 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void SpawnDart()
+    public void SpawnDart()
     {
-        Destroy(currentDart);
-        GameObject dartGameObject = Instantiate(dartPrefab, dartSpawnPoint.position, dartSpawnPoint.rotation);
-        currentDart = dartGameObject;
-        currentDart.transform.parent = dartSpawnPoint;
+        GameObject dartGameObject = Instantiate(dartPrefab, dartSpawnPoint);
+        currentDart = dartGameObject.GetComponent<Dart>();
+        currentDart.dartPower = dartPower;
     }
 
     public void StartGame()
     {
         startButton.SetActive(false);
-        currentDart.SetActive(true);
         currentTime = gameTime;
         currentScore = 0;
         score.text = currentScore.ToString();
         startCount.SetActive(true);
+        SoundManager.instance.PlaySound(SoundManager.instance.StartCoundDownSound);
+        SpawnDart();
         scoreHistoryPopup.SetActive(false);
     }
 
     public void StartTimer()
     {
+        isplaying = true;
+        endCountDown = false;
         inGameUI.SetActive(true);
 
         StartCoroutine(Timer());
@@ -103,10 +106,17 @@ public class GameManager : MonoBehaviour
             ballonGenerator.currentSpawnTime = 1;
         else
             ballonGenerator.currentSpawnTime = 2;
+
+        if (currentTime <= endCountTime && !endCountDown)
+        {
+            endCountDown = true;
+            SoundManager.instance.PlaySound(SoundManager.instance.EndCountDownSound);
+        }
     }
 
     private void EndGame()
     {
+        isplaying = false;
         StopAllCoroutines();
         ballonGenerator.EndSpawnBallon();
 

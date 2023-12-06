@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1938186276879423203}
   - component: {fileID: 8410109146992060916}
   - component: {fileID: 4129105497802307074}
+  - component: {fileID: -7919778220986143681}
   m_Layer: 0
   m_Name: BlueBallon
   m_TagString: Ballon
@@ -100,6 +101,7 @@ MonoBehaviour:
   speed: 0.001
   score: 1
   particle: {fileID: 62526963456384076, guid: 49dfbca6d41e7734d8134abe62111ff6, type: 3}
+  audioSource: {fileID: 0}
 --- !u!65 &4129105497802307074
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -113,3 +115,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.019085228, y: 0.019130267, z: 0.028700002}
   m_Center: {x: -0.0000019208528, y: -0.00000000977889, z: 0.0073493854}
+--- !u!54 &-7919778220986143681
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020689978877586574}
+  serializedVersion: 2
+  m_Mass: 2
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

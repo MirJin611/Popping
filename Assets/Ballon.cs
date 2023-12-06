@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +12,8 @@ public class Ballon : MonoBehaviour
 
     private void Awake()
     {
-        Invoke("DestroyBallon", 10);
+        Destroy(gameObject,10);
+        speed += UnityEngine.Random.Range(0, 21)*0.001f;
     }
 
 
@@ -31,10 +33,5 @@ public class Ballon : MonoBehaviour
             Destroy(other.gameObject);
             Destroy(gameObject);
         }
-    }
-
-    void DestroyBallon()
-    {
-        Destroy(gameObject);
     }
 }
